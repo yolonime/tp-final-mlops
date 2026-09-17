@@ -1,0 +1,33 @@
+## Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+## Data & artifacts (kept out of git; folders tracked via .gitkeep)
+data/*
+!data/.gitkeep
+!data/churn/
+data/churn/*
+!data/churn/.gitkeep
+!data/distilbert/
+data/distilbert/*
+!data/distilbert/.gitkeep
+
+artifacts/
+mlruns/
+mlartifacts/
+mlflow.db
+
+## Env / secrets
+.env
+
+## Claude Code local (machine-specific) settings
+.claude/settings.local.json
+
+## OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

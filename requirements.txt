@@ -1,0 +1,17 @@
+# Core / churn pipeline (tabular, scikit-learn + MLflow)
+pandas
+numpy
+scikit-learn
+mlflow
+matplotlib
+pyyaml
+joblib
+
+# DistilBERT pipeline (NLP, HuggingFace + MLflow)
+transformers
+datasets
+torch
+
+# Dev / quality
+pytest
+ruff

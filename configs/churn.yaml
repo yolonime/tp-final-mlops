@@ -1,0 +1,26 @@
+data:
+  csv_path: data/churn/adult.csv
+  target: income
+  test_size: 0.2
+  random_state: 42
+
+features:
+  numeric: ["age", "fnlwgt", "education-num", "capital-gain", "capital-loss", "hours-per-week"]
+  categorical: ["workclass", "education", "marital-status", "occupation",
+                "relationship", "race", "sex", "native-country"]
+
+model:
+  type: "logreg"  # or "random_forest"
+  params:
+    C: [0.1, 1.0, 10.0]
+    penalty: ["l2"]
+    solver: ["lbfgs", "liblinear"]
+
+cv:
+  strategy: "StratifiedKFold"
+  n_splits: 5
+  scoring: "roc_auc"
+
+mlflow:
+  experiment_name: "adult-income-churn-exp"
+  registered_model_name: "AdultIncomeClassifier"

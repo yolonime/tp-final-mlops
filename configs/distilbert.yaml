@@ -1,0 +1,24 @@
+data:
+  hf_dataset: ["glue", "sst2"]   # loaded via `datasets.load_dataset(*hf_dataset)`
+  text_column: "sentence"
+  label_column: "label"
+  max_length: 128
+  # GLUE's SST-2 test split is unlabeled, so we train on "train" and use the
+  # official "validation" split as our held-out evaluation/test set.
+
+model:
+  name: "distilbert-base-uncased"
+  num_labels: 2
+
+train:
+  output_dir: "artifacts/distilbert"
+  num_train_epochs: 2
+  per_device_train_batch_size: 16
+  per_device_eval_batch_size: 32
+  learning_rate: 5.0e-5
+  weight_decay: 0.01
+  seed: 42
+
+mlflow:
+  experiment_name: "distilbert-sst2-exp"
+  registered_model_name: "DistilBertSST2Classifier"
