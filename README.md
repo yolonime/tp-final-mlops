@@ -13,6 +13,20 @@ Makefile-orchestrated, MLflow-tracked):
 Both pipelines log params/metrics/artifacts to **MLflow** and (optionally)
 register their best model to the MLflow Model Registry.
 
+## Live demo
+
+**[Census Income Estimator](docs/index.html)** — a static page that
+reproduces the trained churn classifier's exact predictions (same
+coefficients, standardization, and one-hot encoding as `artifacts/churn/model.joblib`)
+entirely client-side in JavaScript. Fill in the form or step through real
+held-out records to see the model's probability and a full breakdown of
+every feature's contribution to the logistic regression score.
+
+Enable **GitHub Pages** (Settings → Pages → Source: `Deploy from branch`,
+branch `master`, folder `/docs`) to serve it at
+`https://yolonime.github.io/tp-final-mlops/`, or just open
+[`docs/index.html`](docs/index.html) directly in a browser — no server needed.
+
 ## Repo layout
 
 ```
@@ -30,6 +44,8 @@ MLOPSFINAL/
 ├─ tests/
 │  ├─ test_churn_pipeline.py
 │  └─ test_distilbert_pipeline.py
+├─ docs/
+│  └─ index.html                 # live demo (see "Live demo" below)
 ├─ Makefile
 ├─ requirements.txt
 ├─ pytest.ini
